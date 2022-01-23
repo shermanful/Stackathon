@@ -25,9 +25,7 @@ upload_an_image.addEventListener('change', function () {
   const reader = new FileReader();
   reader.addEventListener('load', () => {
     uploaded_image = reader.result;
-    document.querySelector(
-      '#display_image'
-    ).style.backgroundImage = `url(${uploaded_image})`;
+    document.querySelector('#display_image').src = uploaded_image;
   });
 
   imageFile = this.files[0];
@@ -35,12 +33,9 @@ upload_an_image.addEventListener('change', function () {
 });
 
 try_me.addEventListener('click', function () {
-  if (uploaded_image) {
-    console.log('Try Me Clicked!');
-    app();
-  } else {
-    console.log('Nothing to test!');
-  }
+  uploaded_image = document.getElementById('display_image');
+  console.log('Try Me Clicked!');
+  app();
 });
 
 //////// with their html this is example script from tensorflow
