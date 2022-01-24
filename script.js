@@ -3,7 +3,6 @@ const upload_an_image = document.querySelector('#image_input');
 const try_me = document.querySelector('#try_me');
 let imageFile, uploaded_image, model, result;
 
-
 const modelURL = URL + 'model.json';
 const metadataURL = URL + 'metadata.json';
 
@@ -46,6 +45,7 @@ upload_an_image.addEventListener('change', function () {
 });
 
 try_me.addEventListener('click', function () {
+
   uploaded_image = document.getElementById('display_image');
   console.log('Try Me Clicked!');
   app();
