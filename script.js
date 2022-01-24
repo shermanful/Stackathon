@@ -1,7 +1,8 @@
 const URL = 'https://teachablemachine.withgoogle.com/models/8zi2D36nX/';
 const upload_an_image = document.querySelector('#image_input');
 const try_me = document.querySelector('#try_me');
-let imageFile, uploaded_image, net, model, maxPredictions;
+const print_result = document.querySelector('#print_result');
+let imageFile, uploaded_image, net, model, maxPredictions, result;
 
 const modelURL = URL + 'model.json';
 const metadataURL = URL + 'metadata.json';
@@ -18,15 +19,17 @@ async function app() {
 
   // Make a prediction through the model on our image.
   console.log('Image being scanned.');
-  const result = await model.predict(imgEl);
+  result = await model.predict(imgEl);
 
   let bread = result[0];
   let dog = result[1];
 
   if (bread['probability'] >= dog['probability']) {
     console.log('BREAD');
+    document.getElementById('print_answer').innerHTML = 'BREAD';
   } else {
     console.log('DOG');
+    document.getElementById('print_answer').innerHTML = 'DOG';
   }
 }
 
@@ -35,6 +38,7 @@ upload_an_image.addEventListener('change', function () {
   reader.addEventListener('load', () => {
     uploaded_image = reader.result;
     document.querySelector('#display_image').src = uploaded_image;
+    document.getElementById('print_answer').innerHTML = '';
   });
 
   imageFile = this.files[0];
