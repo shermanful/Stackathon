@@ -3,10 +3,8 @@ const upload_an_image = document.querySelector('#image_input');
 const try_me = document.querySelector('#try_me');
 let imageFile, uploaded_image, net, model, maxPredictions;
 
-
 const modelURL = URL + 'model.json';
 const metadataURL = URL + 'metadata.json';
-
 
 async function app() {
   console.log('Loading model..');
@@ -21,7 +19,15 @@ async function app() {
   // Make a prediction through the model on our image.
   console.log('Image being scanned.');
   const result = await model.predict(imgEl);
-  console.log(result);
+
+  let bread = result[0];
+  let dog = result[1];
+
+  if (bread['probability'] >= dog['probability']) {
+    console.log('BREAD');
+  } else {
+    console.log('DOG');
+  }
 }
 
 upload_an_image.addEventListener('change', function () {
