@@ -1,8 +1,8 @@
 const URL = 'https://teachablemachine.withgoogle.com/models/8zi2D36nX/';
 const upload_an_image = document.querySelector('#image_input');
 const try_me = document.querySelector('#try_me');
-const print_result = document.querySelector('#print_result');
-let imageFile, uploaded_image, net, model, maxPredictions, result;
+let imageFile, uploaded_image, model, result;
+
 
 const modelURL = URL + 'model.json';
 const metadataURL = URL + 'metadata.json';
