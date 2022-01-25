@@ -1,3 +1,4 @@
 {
-  "cSpell.words": ["teachablemachine", "tfjs"]
+  "cSpell.words": ["teachablemachine", "tfjs"],
+  "git.ignoreLimitWarning": true
 }
